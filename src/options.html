@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>回帖思路助手设置</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="settings">
+      <header class="settings-header">
+        <div>
+          <h1>回帖思路助手设置</h1>
+          <p>这些信息只保存在你的浏览器本地，用来让生成结果更贴近你的表达习惯。</p>
+        </div>
+      </header>
+
+      <form id="settings-form" class="settings-grid">
+        <section class="panel">
+          <h2>模型配置</h2>
+          <label>
+            <span>模型提供方</span>
+            <select id="provider" name="provider">
+              <option value="minimax">MiniMax</option>
+              <option value="openai">OpenAI</option>
+              <option value="deepseek">DeepSeek</option>
+              <option value="qwen">通义千问 Qwen</option>
+              <option value="kimi">Kimi / Moonshot</option>
+              <option value="gemini">Google Gemini</option>
+              <option value="anthropic">Claude</option>
+              <option value="compatible">自定义 OpenAI-compatible</option>
+            </select>
+          </label>
+          <label>
+            <span>API Key</span>
+            <input id="apiKey" name="apiKey" type="password" autocomplete="off" placeholder="MiniMax Token Plan Key 或 OpenAI Key">
+          </label>
+          <label>
+            <span>API Base URL</span>
+            <input id="baseUrl" name="baseUrl" type="url" placeholder="https://api.minimax.io/v1">
+          </label>
+          <label>
+            <span>常用模型</span>
+            <select id="modelPreset" name="modelPreset"></select>
+          </label>
+          <label>
+            <span>模型 ID</span>
+            <input id="model" name="model" type="text" placeholder="MiniMax-M2.7">
+          </label>
+          <label>
+            <span>每次生成几条思路</span>
+            <input id="replyCount" name="replyCount" type="number" min="2" max="6" step="1">
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>个人信息</h2>
+          <label>
+            <span>你是谁</span>
+            <textarea id="profile" name="profile" placeholder="例如：创业者、产品经理、独立开发者、内容创作者..."></textarea>
+          </label>
+          <label>
+            <span>专业/兴趣领域</span>
+            <textarea id="expertise" name="expertise" placeholder="例如：AI 产品、商业分析、社会观察、教育、投资..."></textarea>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>表达偏好</h2>
+          <label>
+            <span>你喜欢的表达风格</span>
+            <textarea id="voice" name="voice"></textarea>
+          </label>
+          <label>
+            <span>你的回帖目标</span>
+            <textarea id="goals" name="goals"></textarea>
+          </label>
+          <label>
+            <span>不要出现的内容</span>
+            <textarea id="boundaries" name="boundaries"></textarea>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>长期记忆</h2>
+          <label>
+            <span>你希望助手长期记住的偏好</span>
+            <textarea id="memory" name="memory" placeholder="例如：少用反问，多给事实依据；不要写得太像公关稿；优先用第一性原理分析..."></textarea>
+          </label>
+          <div class="feedback-box">
+            <div>
+              <strong>近期反馈</strong>
+              <p id="feedbackSummary">暂无反馈</p>
+            </div>
+            <button id="clearFeedback" type="button">清空反馈</button>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button class="primary" type="submit">保存设置</button>
+          <span id="status" role="status"></span>
+        </div>
+      </form>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

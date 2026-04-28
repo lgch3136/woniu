@@ -1,0 +1,476 @@
+:host {
+  all: initial;
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.ria {
+  --bg: #f7f7f4;
+  --panel: #ffffff;
+  --text: #151515;
+  --muted: #666a70;
+  --line: #d9ddd5;
+  --strong: #0f3d35;
+  --accent: #196b5f;
+  --accent-2: #d54b2a;
+  --soft: #eef2ec;
+  --shadow: 0 18px 48px rgba(20, 22, 20, 0.18);
+  position: fixed;
+  z-index: 2147483647;
+  inset: auto 20px 22px auto;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ria-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  width: 62px;
+  height: 44px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  background: var(--strong);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(15, 61, 53, 0.22);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.ria-fab:hover {
+  background: #174f45;
+}
+
+.ria-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 76px;
+  width: min(420px, calc(100vw - 32px));
+  max-height: min(760px, calc(100vh - 96px));
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.ria-panel.is-open {
+  display: flex;
+}
+
+.ria-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.ria-panel-header strong {
+  display: block;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.ria-panel-header span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ria-icon-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.ria-controls,
+.ria-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 14px 16px 0;
+}
+
+.ria-controls label,
+.ria-context-label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ria-controls span,
+.ria-context-label span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ria select,
+.ria textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+.ria select {
+  height: 38px;
+  padding: 0 10px;
+}
+
+.ria textarea {
+  height: 138px;
+  min-height: 96px;
+  max-height: 260px;
+  resize: vertical;
+  padding: 10px;
+}
+
+.ria select:focus,
+.ria textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(25, 107, 95, 0.12);
+}
+
+.ria-context-label {
+  padding: 14px 16px 0;
+}
+
+.ria button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.ria-primary {
+  min-height: 40px;
+  padding: 0 16px;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.ria-primary:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.ria-secondary,
+.ria-card-actions button {
+  min-height: 38px;
+  padding: 0 12px;
+  background: #fff;
+  color: var(--text);
+}
+
+.ria-secondary:hover,
+.ria-card-actions button:hover,
+.ria-icon-button:hover {
+  background: var(--soft);
+}
+
+.ria-status {
+  min-height: 20px;
+  margin: 10px 16px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ria-status.is-error {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.ria-result {
+  display: grid;
+  gap: 12px;
+  overflow: auto;
+  padding: 12px 16px 16px;
+}
+
+.ria-summary,
+.ria-points,
+.ria-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+}
+
+.ria-summary h3,
+.ria-points h3,
+.ria-card h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.ria-summary p,
+.ria-points p,
+.ria-card p {
+  margin: 8px 0 0;
+  color: var(--text);
+}
+
+.ria-points ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.ria-points li {
+  margin: 4px 0;
+}
+
+.ria-card {
+  display: grid;
+  gap: 9px;
+}
+
+.ria-card-head {
+  display: grid;
+  gap: 6px;
+}
+
+.ria-card-head span {
+  width: fit-content;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--strong);
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ria-core {
+  font-weight: 700;
+}
+
+.ria blockquote {
+  margin: 0;
+  border-left: 3px solid var(--accent);
+  background: #f4f6f2;
+  padding: 10px 12px;
+  color: var(--text);
+}
+
+.ria-risk {
+  color: var(--muted) !important;
+  font-size: 12px;
+}
+
+.ria-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ria-post-popover {
+  position: fixed;
+  z-index: 2147483647;
+  display: none;
+  max-height: min(560px, calc(100vh - 24px));
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow);
+}
+
+.ria-post-popover.is-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.ria-post-popover-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.ria-post-popover-head strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.ria-post-popover-head span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ria-post-popover-body {
+  display: grid;
+  gap: 12px;
+  overflow: auto;
+  padding: 13px 14px 14px;
+}
+
+.ria-post-section {
+  display: grid;
+  gap: 7px;
+}
+
+.ria-post-section h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.ria-post-section p {
+  margin: 0;
+}
+
+.ria-post-section ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ria-post-section li {
+  margin: 3px 0;
+}
+
+.ria-post-suggestions {
+  display: grid;
+  gap: 10px;
+}
+
+.ria-post-suggestion {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.ria-post-suggestion:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.ria-post-suggestion strong {
+  color: var(--strong);
+  font-size: 13px;
+}
+
+.ria-post-suggestion p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ria-post-suggestion blockquote {
+  margin: 0;
+  border-left: 3px solid var(--accent);
+  background: #f4f6f2;
+  padding: 9px 10px;
+  white-space: pre-wrap;
+}
+
+.ria-post-suggestion button {
+  width: fit-content;
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+}
+
+.ria-post-suggestion button:hover {
+  background: var(--soft);
+}
+
+.ria-post-muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ria-post-error {
+  margin: 0;
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ria-post-loading {
+  display: grid;
+  gap: 8px;
+}
+
+.ria-post-loading span {
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ecefe8 0%, #f7f8f4 50%, #ecefe8 100%);
+  background-size: 180% 100%;
+  animation: ria-shimmer 1.1s ease-in-out infinite;
+}
+
+.ria-post-loading span:nth-child(2) {
+  width: 88%;
+}
+
+.ria-post-loading span:nth-child(3) {
+  width: 62%;
+}
+
+@keyframes ria-shimmer {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -180% 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .ria-panel {
+    right: 12px;
+    bottom: 70px;
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 88px);
+  }
+
+  .ria-fab {
+    right: 12px;
+    bottom: 16px;
+  }
+
+  .ria-post-popover {
+    left: 12px !important;
+    right: 12px;
+    width: auto !important;
+  }
+}

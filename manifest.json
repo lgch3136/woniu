@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "回帖思路助手",
+  "description": "浏览网页或长文时，结合个人偏好生成有水准的回帖思路。",
+  "version": "0.2.0",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://api.openai.com/*", "http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "回帖思路助手",
+    "default_popup": "src/popup.html"
+  },
+  "options_page": "src/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["src/content.css"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}
