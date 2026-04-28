@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "回帖思路助手",
+  "name": "蜗牛回帖助手",
   "description": "浏览网页或长文时，结合个人偏好生成有水准的回帖思路。",
   "version": "0.2.0",
   "permissions": ["activeTab", "storage"],
@@ -17,7 +17,7 @@
     }
   ],
   "action": {
-    "default_title": "回帖思路助手",
+    "default_title": "蜗牛回帖助手",
     "default_popup": "src/popup.html"
   },
   "options_page": "src/options.html",

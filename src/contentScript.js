@@ -53,14 +53,14 @@ function renderShell() {
   const wrapper = document.createElement("div");
   wrapper.className = "ria";
   wrapper.innerHTML = `
-    <button class="ria-fab" type="button" data-action="toggle" aria-label="打开回帖思路助手">
+    <button class="ria-fab" type="button" data-action="toggle" aria-label="打开蜗牛回帖助手">
       <span>回帖</span>
     </button>
 
-    <section class="ria-panel" aria-label="回帖思路助手">
+    <section class="ria-panel" aria-label="蜗牛回帖助手">
       <header class="ria-panel-header">
         <div>
-          <strong>回帖思路助手</strong>
+          <strong>蜗牛回帖助手</strong>
           <span>基于当前页面生成观点角度</span>
         </div>
         <button class="ria-icon-button" type="button" data-action="close" aria-label="关闭">×</button>
